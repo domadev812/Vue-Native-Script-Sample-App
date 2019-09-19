@@ -1,8 +1,13 @@
 import Vue from "nativescript-vue";
 
-import router from './router';
+import HomeScreen from "./screens/HomeScreen";
 
 new Vue({
-  router
+  template: `
+    <Frame>
+      <HomeScreen />
+    </Frame>`,
+  components: {
+    HomeScreen
+  }
 }).$start();
-
