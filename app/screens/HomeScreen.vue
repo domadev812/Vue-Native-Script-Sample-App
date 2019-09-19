@@ -10,18 +10,71 @@
           <Button class="btn-free-energy" text="FREE ENERGY"></Button>
         </FlexboxLayout>
       </FlexboxLayout>
-      <FlexboxLayout>
-        <ReportChat :data="chatData" />
+      <ReportChart :data="chatData" />
+      <FlexboxLayout class="main-container" flexDirection="column">
+        <FlexboxLayout
+          class="main-item"
+          orientation="horizontal"
+          flexDirection="row"
+        >
+          <StackLayout verticalAlignment="center" >
+            <Image src="~/assets/home.png" height="50" width="50" stretch="aspectFit" />
+          </StackLayout>
+          <StackLayout verticalAlignment="center">
+            <Label class="main-text" text="Home" horizontalAlignment="center"/>
+            <Label class="main-description" text="50% of connected" horizontalAlignment="center" />
+          </StackLayout>
+          <StackLayout verticalAlignment="center">
+            <Switch checked="true" width="100" />
+            <Label class="main-description" text="TIME OF USE" horizontalAlignment="center" />
+          </StackLayout>
+        </FlexboxLayout>
+        <FlexboxLayout
+          class="main-item"
+          orientation="horizontal"
+          flexDirection="row"
+        >
+          <StackLayout verticalAlignment="center" >
+            <Image src="~/assets/thermostat.png" height="40" width="40" stretch="aspectFit" />
+          </StackLayout>
+          <StackLayout verticalAlignment="center">
+            <Label class="main-text" text="Thermostat" horizontalAlignment="center"/>
+            <Label class="main-description" text="Nest Thermostat E" horizontalAlignment="center" />
+          </StackLayout>
+          <Image src="~/assets/arrow-right.png" height="30" width="30" stretch="aspectFit" />
+        </FlexboxLayout>
+        <FlexboxLayout
+          class="main-item"
+          orientation="horizontal"
+          flexDirection="row"
+        >
+          <StackLayout verticalAlignment="center" >
+            <Image src="~/assets/refrigerator.png" height="40" width="40" stretch="aspectFit" />
+          </StackLayout>
+          <StackLayout verticalAlignment="center">
+            <Label class="main-text" text="Refrigerator" horizontalAlignment="center"/>
+            <Label class="main-description" text="Nest Thermostat E" horizontalAlignment="center" />
+          </StackLayout>
+          <Image src="~/assets/arrow-right.png" height="30" width="30" stretch="aspectFit" />
+        </FlexboxLayout>
+        <FlexboxLayout
+          class="main-item"
+          orientation="horizontal"
+          flexDirection="row"
+        >
+          <Label width="40" height="40" class="add-connection-icon" text="+" />
+          <Label class="add-connection-text" text="Add Connection" horizontalAlignment="center" />
+        </FlexboxLayout>
       </FlexboxLayout>
     </FlexboxLayout>
   </Page>
 </template>
 
 <script>
-  import ReportChat from '../components/ReportChat'
+  import ReportChart from '../components/ReportChart';
   export default {
     components: {
-      ReportChat
+      ReportChart
     },     
     data() {
       return {
@@ -93,7 +146,6 @@
           .btn-free-energy {
             height: 120px;
             width: 450px;
-            // padding: auto 20px;
             border-radius: 60px;
             background-color: $btn-color-gray;
             color: white;
@@ -102,5 +154,48 @@
           }
         }
       }
+    .main-container {
+      flex: 1;
+      margin-top: 30px;
+      padding: 30px;
+      background-color: red;
+      border-top-left-radius: 70px;
+      border-top-right-radius: 70px;
+      .main-item {
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 50px;
+        padding-right: 50px;
+        flex: 1;
+        .main-text {
+          margin-bottom: 20px;
+          font-size: 20px;
+          line-height: 40px;
+          font-weight: bold;
+          color: $text-color-gray
+        }
+        .main-description {
+          margin-top: 20px;
+          font-size: 14px;
+          color: #888;
+        }
+        .add-connection-icon {
+          font-size: 40px;
+          padding: 30px;
+          border-radius: 50%;
+          background-color: $btn-color-gray;
+          color: white;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .add-connection-text {
+          flex: 1;
+          font-size: 20px;
+          line-height: 40px;
+          font-weight: bold;
+        }
+      }
+    }
   }
 </style>

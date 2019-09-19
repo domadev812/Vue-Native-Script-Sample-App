@@ -1,5 +1,4 @@
 import Vue from "nativescript-vue";
-
 import HomeScreen from "./screens/HomeScreen";
 
 new Vue({
