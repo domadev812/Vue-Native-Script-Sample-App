@@ -18,11 +18,11 @@
           flexDirection="row"
         >
           <StackLayout verticalAlignment="center" >
-            <Image src="~/assets/home.png" height="50" width="50" stretch="aspectFit" />
+            <Image src="~/assets/home.png" height="40" width="40" stretch="aspectFit" />
           </StackLayout>
-          <StackLayout verticalAlignment="center">
-            <Label class="main-text" text="Home" horizontalAlignment="center"/>
-            <Label class="main-description" text="50% of connected" horizontalAlignment="center" />
+          <StackLayout class="main-wrapper">
+            <Label class="main-text" text="Home" />
+            <Label class="main-description" text="50% of connected" />
           </StackLayout>
           <StackLayout verticalAlignment="center">
             <Switch checked="true" width="100" />
@@ -33,17 +33,19 @@
           class="main-item"
           orientation="horizontal"
           flexDirection="row"
+          v-show="!showConnectModal"
         >
           <StackLayout verticalAlignment="center" >
             <Image src="~/assets/thermostat.png" height="40" width="40" stretch="aspectFit" />
           </StackLayout>
-          <StackLayout verticalAlignment="center">
-            <Label class="main-text" text="Thermostat" horizontalAlignment="center"/>
-            <Label class="main-description" text="Nest Thermostat E" horizontalAlignment="center" />
+          <StackLayout class="main-wrapper">
+            <Label class="main-text" text="Thermostat"/>
+            <Label class="main-description" text="Nest Thermostat E" />
           </StackLayout>
           <Image src="~/assets/arrow-right.png" height="30" width="30" stretch="aspectFit" />
         </FlexboxLayout>
         <FlexboxLayout
+          v-show="!showConnectModal"
           class="main-item"
           orientation="horizontal"
           flexDirection="row"
@@ -51,19 +53,41 @@
           <StackLayout verticalAlignment="center" >
             <Image src="~/assets/refrigerator.png" height="40" width="40" stretch="aspectFit" />
           </StackLayout>
-          <StackLayout verticalAlignment="center">
-            <Label class="main-text" text="Refrigerator" horizontalAlignment="center"/>
-            <Label class="main-description" text="Nest Thermostat E" horizontalAlignment="center" />
+          <StackLayout class="main-wrapper">
+            <Label class="main-text" v-shadow="2" text="Refrigerator"/>
+            <Label class="main-description" text="Nest Thermostat E" />
           </StackLayout>
           <Image src="~/assets/arrow-right.png" height="30" width="30" stretch="aspectFit" />
         </FlexboxLayout>
         <FlexboxLayout
+          v-show="showConnectModal"
+          class="connect-modal"
+          orientation="horizontal"
+          flexDirection="row"
+        >
+          <StackLayout>
+            <Image src="~/assets/voice.png" width="50" height="50" marginBottom="10" />
+            <Label text="Voice" horizontalAlignment="center" />
+          </StackLayout>
+          <StackLayout >
+            <Image src="~/assets/thermostat.png" width="50" height="50" marginBottom="10" />
+            <Label text="Thermostat" horizontalAlignment="center" />
+          </StackLayout>
+          <StackLayout >
+            <Image src="~/assets/plug.png" width="50" height="50" marginBottom="10" />
+            <Label text="Plug" horizontalAlignment="center" />
+          </StackLayout>
+        </FlexboxLayout>
+        <FlexboxLayout
+          @tap="onToggleConnectModal"
           class="main-item"
           orientation="horizontal"
           flexDirection="row"
         >
-          <Label width="40" height="40" class="add-connection-icon" text="+" />
-          <Label class="add-connection-text" text="Add Connection" horizontalAlignment="center" />
+          <FlexboxLayout width="40" height="40" class="add-connection-icon-wrraper">
+            <Label class="add-connection-icon" :text="!showConnectModal ? '+' : '⨯'" />
+          </FlexboxLayout>
+          <Label class="add-connection-text" :text="!showConnectModal ? 'Add Connection' : 'Back'" horizontalAlignment="center" />
         </FlexboxLayout>
       </FlexboxLayout>
     </FlexboxLayout>
@@ -110,7 +134,13 @@
             profit: 105,
             date: new Date()
           }
-        ]
+        ],
+        showConnectModal: false
+      }
+    },
+    methods: {
+      onToggleConnectModal () {
+        this.showConnectModal = !this.showConnectModal
       }
     },
     computed: {
@@ -158,38 +188,46 @@
       flex: 1;
       margin-top: 30px;
       padding: 30px;
-      background-color: red;
       border-top-left-radius: 70px;
       border-top-right-radius: 70px;
+      .connect-modal {
+        flex: 2;
+        justify-content: space-around;
+        align-items: center;
+      }
       .main-item {
         justify-content: space-between;
         align-items: center;
         padding-left: 50px;
         padding-right: 50px;
         flex: 1;
-        .main-text {
-          margin-bottom: 20px;
-          font-size: 20px;
-          line-height: 40px;
-          font-weight: bold;
-          color: $text-color-gray
+        .main-wrapper {
+          margin-left: 70px;
+          flex: 1;
+          .main-text {
+            font-size: 20px;
+            line-height: 40px;
+            font-weight: bold;
+            color: $text-color-gray
+          }
         }
         .main-description {
-          margin-top: 20px;
-          font-size: 14px;
-          color: #888;
-        }
-        .add-connection-icon {
-          font-size: 40px;
-          padding: 30px;
-          border-radius: 50%;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #888;
+          }
+        .add-connection-icon-wrraper {
           background-color: $btn-color-gray;
-          color: white;
-          display: flex;
+          border-radius: 50%;
           align-items: center;
           justify-content: center;
+          .add-connection-icon {
+            font-size: 25px;
+            color: white;
+          }
         }
         .add-connection-text {
+          margin-left: 70px;
           flex: 1;
           font-size: 20px;
           line-height: 40px;
