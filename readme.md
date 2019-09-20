@@ -1,25 +1,25 @@
 ## Build Setup
 
-### install NativeScript your local machine.
+### Install NativeScript your local machine.
 ```
 npm install -g nativescript
 ```
 ```
 ruby -e "$(curl -fsSL https://www.nativescript.org/setup/mac)"
 ```
-Please more check in https://docs.nativescript.org/angular/start/quick-setup
+Please more check in https://docs.nativescript.org/vuejs/nativescript-vuejs
 
-### install dependencies
+### Install dependencies
 ```
 npm install
 ```
 
-### run app in Android
+### Run app in Android
 ```
 tns run android
 ```
 
-### run app in iOS
+### Run app in iOS
 ```
 tns run ios
 ```
