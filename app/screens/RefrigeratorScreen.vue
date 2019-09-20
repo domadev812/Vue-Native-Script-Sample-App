@@ -1,6 +1,7 @@
 <template>
   <Page class="refrigerator-page">
-    <ActionBar class="action-bar">
+    <ActionBar class="action-bar" backgroundColor="white" color="#414353">
+      <NavigationButton text="" android.systemIcon="ic_menu_back" />
       <StackLayout
         orientation="horizontal"
       >
@@ -9,34 +10,25 @@
       </StackLayout>
     </ActionBar>
     <StackLayout class="refrigerator-page-container">
-      <StackLayout
-        class="device-performance-charting"
-        orientation="horizontal"
-        height="200"
-      >
-        <Label
-          class="performance-charting-label"
-          text="Device Performance Charting]"
-          verticalAlignment="center"
-          horizontalAlignment="center"
-        />
+      <StackLayout marginTop="50">
+        <ReportChart :data="chatData" />
       </StackLayout>
       <StackLayout
         class="refrigerator-wrapper"
-        height="150"
+        height="130"
         orientation="horizontal"
       >
-        <Image src="~/assets/refrigerator.png" height="80" width="80" stretch="aspectFit" />
+        <Image src="~/assets/tp-link-hs110.jpg" height="80" width="80" stretch="aspectFit" />
         <Label
           class="refrigerator-label"
           verticalAlignment="center"
           horizontalAlignment="center"
-          text="Nest refrigerator E"
+          text="TP-Link HS110"
         />
       </StackLayout>
       <StackLayout
         class="refrigerator-wrapper"
-        height="100"
+        height="80"
         orientation="horizontal"
       >
         <Label
@@ -48,7 +40,7 @@
       </StackLayout>
       <StackLayout
         class="refrigerator-wrapper"
-        height="100"
+        height="80"
         orientation="horizontal"
       >
         <Label
@@ -60,7 +52,7 @@
       </StackLayout>
       <StackLayout
         class="refrigerator-wrapper"
-        height="100"
+        height="80"
         orientation="horizontal"
       >
         <Label
@@ -81,7 +73,40 @@
       ReportChart
     },     
     data() {
-      return {}
+      return {
+        chatData: [
+          {
+            price: 150,
+            profit: 100,
+            date: new Date()
+          },
+          {
+            price: 130,
+            profit: 120,
+            date: new Date()
+          },
+          {
+            price: 110,
+            profit: 80,
+            date: new Date()
+          },
+          {
+            price: 140,
+            profit: 30,
+            date: new Date()
+          },
+          {
+            price: 100,
+            profit: 30,
+            date: new Date()
+          },
+          {
+            price: 120,
+            profit: 105,
+            date: new Date()
+          }
+        ],
+      }
     },
     methods: {}
   };
@@ -102,13 +127,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      .device-performance-charting {
-        width: 100%;
-        .performance-charting-label {
-          font-size: 25px;
-          color: $text-color-gray;
-        }
-      }
+
       .refrigerator-wrapper {
         .refrigerator-label {
           margin-left: 40px;

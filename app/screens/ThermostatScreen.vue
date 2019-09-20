@@ -1,6 +1,7 @@
 <template>
   <Page class="thermostat-page">
-    <ActionBar class="action-bar">
+    <ActionBar class="action-bar" backgroundColor="white" color="#414353">
+      <NavigationButton text="" android.systemIcon="ic_menu_back" />
       <StackLayout
         orientation="horizontal"
       >
@@ -9,24 +10,15 @@
       </StackLayout>
     </ActionBar>
     <StackLayout class="thermostat-page-container">
-      <StackLayout
-        class="device-performance-charting"
-        orientation="horizontal"
-        height="200"
-      >
-        <Label
-          class="performance-charting-label"
-          text="Device Performance Charting]"
-          verticalAlignment="center"
-          horizontalAlignment="center"
-        />
+      <StackLayout marginTop="50">
+        <ReportChart :data="chatData" />
       </StackLayout>
       <StackLayout
         class="thermostat-wrapper"
-        height="150"
+        height="130"
         orientation="horizontal"
       >
-        <Image src="~/assets/thermostat.png" height="80" width="80" stretch="aspectFit" />
+        <Image src="~/assets/nest-thermostat.jpg" height="100" width="100" stretch="aspectFit" />
         <Label
           class="thermostat-label"
           verticalAlignment="center"
@@ -36,7 +28,7 @@
       </StackLayout>
       <StackLayout
         class="thermostat-wrapper"
-        height="100"
+        height="80"
         orientation="horizontal"
       >
         <Label
@@ -48,7 +40,7 @@
       </StackLayout>
       <StackLayout
         class="thermostat-wrapper"
-        height="100"
+        height="80"
         orientation="horizontal"
       >
         <Label
@@ -60,7 +52,7 @@
       </StackLayout>
       <StackLayout
         class="thermostat-wrapper"
-        height="100"
+        height="80"
         orientation="horizontal"
       >
         <Label
@@ -81,7 +73,40 @@
       ReportChart
     },     
     data() {
-      return {}
+      return {
+        chatData: [
+          {
+            price: 150,
+            profit: 100,
+            date: new Date()
+          },
+          {
+            price: 130,
+            profit: 120,
+            date: new Date()
+          },
+          {
+            price: 110,
+            profit: 80,
+            date: new Date()
+          },
+          {
+            price: 140,
+            profit: 30,
+            date: new Date()
+          },
+          {
+            price: 100,
+            profit: 30,
+            date: new Date()
+          },
+          {
+            price: 120,
+            profit: 105,
+            date: new Date()
+          }
+        ],
+      }
     },
     methods: {}
   };
@@ -102,13 +127,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      .device-performance-charting {
-        width: 100%;
-        .performance-charting-label {
-          font-size: 25px;
-          color: $text-color-gray;
-        }
-      }
+
       .thermostat-wrapper {
         .thermostat-label {
           margin-left: 40px;

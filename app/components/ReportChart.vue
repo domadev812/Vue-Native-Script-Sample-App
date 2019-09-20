@@ -6,12 +6,13 @@
         :key="index"
         class="chart-item"
         verticalAlignment="bottom"
+        hieght="100"
       >
         <StackLayout
           orientation="horizontal"
         >
-          <Label text="" width="50" :height="item.price" verticalAlignment="bottom" backgroundColor="#dadada"/>
-          <Label text="" width="50" :height="item.profit" verticalAlignment="bottom" backgroundColor="#1fe0db"/>
+          <Label text="" width="50" :height="item.price" verticalAlignment="bottom" backgroundColor="#e5e5ea"/>
+          <Label text="" width="50" :height="item.profit" verticalAlignment="bottom" backgroundColor="#49c1d1"/>
         </StackLayout>
         <StackLayout orientation="horizontal" horizontalAlignment="center">
           <Image width="20" height="20" src="~/assets/chart.png" stretch="aspectFill" />

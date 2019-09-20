@@ -10,27 +10,41 @@
           <Button
             class="btn-free-energy"
             text="FREE ENERGY"
+            height="40"
             @tap="onOpenFreeEnergyModal"
           />
         </FlexboxLayout>
       </FlexboxLayout>
       <ReportChart :data="chatData" />
-      <FlexboxLayout class="main-container" flexDirection="column">
+      <StackLayout
+        verticalAlignment="bottom"
+        height="30"
+        marginTop="20"
+        class="shadow-container"
+        backgroundColor="white"
+        v-shadow="{elevation: 6, shadowOffset: -6}"
+      />
+      <FlexboxLayout
+        class="main-container"
+        flexDirection="column"
+        paddingLeft="20"
+        paddingRight="20"
+      >
         <FlexboxLayout
-          class="main-item"
+          backgroundColor="#f4f4f4"
+          class="main-item home-container"
           orientation="horizontal"
           flexDirection="row"
+          height="1"
         >
-          <StackLayout verticalAlignment="center" >
             <Image src="~/assets/home.png" height="40" width="40" stretch="aspectFit" />
-          </StackLayout>
           <StackLayout class="main-wrapper">
             <Label class="main-text" text="Home" />
             <Label class="main-description" text="50% of connected" />
           </StackLayout>
           <StackLayout verticalAlignment="center">
             <Switch checked="true" width="100" />
-            <Label class="main-description" text="TIME OF USE" horizontalAlignment="center" />
+            <Label class="time-of-use" text="TIME OF USE" horizontalAlignment="center" />
           </StackLayout>
         </FlexboxLayout>
         <FlexboxLayout
@@ -39,6 +53,7 @@
           flexDirection="row"
           v-show="!showConnectModal"
           @tap="goToThermostatPage"
+          height="1"
         >
           <StackLayout verticalAlignment="center" >
             <Image src="~/assets/thermostat.png" height="40" width="40" stretch="aspectFit" />
@@ -55,6 +70,7 @@
           orientation="horizontal"
           flexDirection="row"
           @tap="goToRefrigeratorPage"
+          height="1"
         >
           <StackLayout verticalAlignment="center" >
             <Image src="~/assets/refrigerator.png" height="40" width="40" stretch="aspectFit" />
@@ -66,6 +82,7 @@
           <Image src="~/assets/arrow-right.png" height="30" width="30" stretch="aspectFit" />
         </FlexboxLayout>
         <FlexboxLayout
+          height="2"
           v-show="showConnectModal"
           class="connect-modal"
           orientation="horizontal"
@@ -85,6 +102,7 @@
           </StackLayout>
         </FlexboxLayout>
         <FlexboxLayout
+          height="1"
           @tap="onToggleConnectModal"
           class="main-item"
           orientation="horizontal"
@@ -105,11 +123,11 @@
   import ThermostatScreen from './ThermostatScreen';
   import RefrigeratorScreen from './RefrigeratorScreen';
   import FreeEnergyModal from './FreeEnergyModal';
-
+  
   export default {
     components: {
       ReportChart
-    },     
+    },
     data() {
       return {
         savingPrice: "$40.23",
@@ -176,7 +194,7 @@
   @import '../app-variables';
   // End custom common variables
   .home-page-container {
-    padding: 40px;
+    padding-top: 80px;
     .savings-container {
         margin-bottom: 50px;
         .savings-labels-wrapper {
@@ -193,28 +211,27 @@
           flex: 1;
           align-items: center;
           .btn-free-energy {
-            height: 120px;
-            width: 450px;
             border-radius: 60px;
             background-color: $btn-color-gray;
             color: white;
             font-size: 14px;
             font-weight: bold;
+            padding-left: 50px;
+            padding-right: 50px
           }
         }
       }
     .main-container {
       flex: 1;
-      margin-top: 30px;
-      padding: 30px;
-      border-top-left-radius: 70px;
-      border-top-right-radius: 70px;
       .connect-modal {
         flex: 2;
         justify-content: space-around;
         align-items: center;
       }
       .main-item {
+        &.home-container {
+          border-radius: 30px;
+        }
         justify-content: space-between;
         align-items: center;
         padding-left: 50px;
@@ -230,13 +247,18 @@
             color: $text-color-gray
           }
         }
+        .time-of-use {
+          margin-top: 10px;
+          font-size: 11px;
+          color: #888;
+        }
         .main-description {
             margin-top: 10px;
             font-size: 14px;
             color: #888;
           }
         .add-connection-icon-wrraper {
-          background-color: $btn-color-gray;
+          background-color: $text-color-gray;
           border-radius: 50%;
           align-items: center;
           justify-content: center;
@@ -253,6 +275,10 @@
           font-weight: bold;
         }
       }
+    }
+    .shadow-container {
+      border-top-left-radius: 50%;
+      border-top-right-radius: 50%;
     }
   }
 </style>
