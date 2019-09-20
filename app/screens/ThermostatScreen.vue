@@ -1,7 +1,7 @@
 <template>
   <Page class="thermostat-page">
     <ActionBar class="action-bar" backgroundColor="white" color="#414353">
-      <NavigationButton text="" android.systemIcon="ic_menu_back" />
+      <NavigationButton text="" android.systemIcon="ic_menu_back" @tap="goBack"/>
       <StackLayout
         orientation="horizontal"
       >

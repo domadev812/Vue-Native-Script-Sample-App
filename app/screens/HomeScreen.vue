@@ -22,7 +22,7 @@
         marginTop="20"
         class="shadow-container"
         backgroundColor="white"
-        v-shadow="{elevation: 6, shadowOffset: -6}"
+        v-shadow="{elevation: 6, shadowOffset: -6, translationZ: -10}"
       />
       <FlexboxLayout
         class="main-container"
@@ -76,7 +76,7 @@
             <Image src="~/assets/refrigerator.png" height="40" width="40" stretch="aspectFit" />
           </StackLayout>
           <StackLayout class="main-wrapper">
-            <Label class="main-text" v-shadow="2" text="Refrigerator"/>
+            <Label class="main-text" text="Refrigerator"/>
             <Label class="main-description" text="Nest Thermostat E" />
           </StackLayout>
           <Image src="~/assets/arrow-right.png" height="30" width="30" stretch="aspectFit" />
@@ -177,7 +177,7 @@
         this.$navigateTo(RefrigeratorScreen);
       },
       onOpenFreeEnergyModal () {
-        this.$showModal(FreeEnergyModal);
+        this.$showModal(FreeEnergyModal, { fullscreen: true });
       }
     },
     computed: {
