@@ -7,7 +7,11 @@
           <Label class="saving-label" :text="savingPrice" />
         </FlexboxLayout>
         <FlexboxLayout flexDirection="column" class="savings-button-wrapper">
-          <Button class="btn-free-energy" text="FREE ENERGY"></Button>
+          <Button
+            class="btn-free-energy"
+            text="FREE ENERGY"
+            @tap="onOpenFreeEnergyModal"
+          />
         </FlexboxLayout>
       </FlexboxLayout>
       <ReportChart :data="chatData" />
@@ -34,6 +38,7 @@
           orientation="horizontal"
           flexDirection="row"
           v-show="!showConnectModal"
+          @tap="goToThermostatPage"
         >
           <StackLayout verticalAlignment="center" >
             <Image src="~/assets/thermostat.png" height="40" width="40" stretch="aspectFit" />
@@ -49,6 +54,7 @@
           class="main-item"
           orientation="horizontal"
           flexDirection="row"
+          @tap="goToRefrigeratorPage"
         >
           <StackLayout verticalAlignment="center" >
             <Image src="~/assets/refrigerator.png" height="40" width="40" stretch="aspectFit" />
@@ -96,6 +102,10 @@
 
 <script>
   import ReportChart from '../components/ReportChart';
+  import ThermostatScreen from './ThermostatScreen';
+  import RefrigeratorScreen from './RefrigeratorScreen';
+  import FreeEnergyModal from './FreeEnergyModal';
+
   export default {
     components: {
       ReportChart
@@ -141,6 +151,15 @@
     methods: {
       onToggleConnectModal () {
         this.showConnectModal = !this.showConnectModal
+      },
+      goToThermostatPage () {
+        this.$navigateTo(ThermostatScreen);
+      },
+      goToRefrigeratorPage () {
+        this.$navigateTo(RefrigeratorScreen);
+      },
+      onOpenFreeEnergyModal () {
+        this.$showModal(FreeEnergyModal);
       }
     },
     computed: {
