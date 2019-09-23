@@ -9,7 +9,7 @@
         <Label class="action-bar-title" text="Refrigerator"></Label>
       </StackLayout>
     </ActionBar>
-    <StackLayout class="refrigerator-page-container">
+    <StackLayout class="refrigerator-page-container" marginLeft="10" marginRight="10">
       <StackLayout marginTop="50">
         <ReportChart :data="chatData" />
       </StackLayout>
@@ -122,8 +122,6 @@
       margin-left: 40px;
     }
     .refrigerator-page-container {
-      padding-left: 60px;
-      padding-right: 60px;
       flex-direction: column;
       justify-content: center;
       align-items: center;
