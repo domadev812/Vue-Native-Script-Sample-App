@@ -50,27 +50,26 @@
 </script>
 
 <style lang="scss">
-  @import '../app-variables';
   .free-energy-modal {
     .free-energy-modal-container {
       .btn-close {
         font-size: 60px;
-        color: $text-color-gray;
+        color: #414353;
       }
       .energy-title {
         font-size: 25px;
-        color: $text-color-gray;
+        color: #414353;
         font-weight: bold;
       }
       .energy-description {
         font-size: 18px;
-        color: $text-color-gray;
+        color: #414353;
         text-align: center;
       }
       .btn-invite-friends {
         font-size: 25px;
         border-radius: 25px;
-        background-color: $text-color-gray;
+        background-color: #414353;
         color: white;
         font-weight: bold;
       }

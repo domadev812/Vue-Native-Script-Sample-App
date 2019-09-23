@@ -1,7 +1,7 @@
 <template>
   <Page class="refrigerator-page">
     <ActionBar class="action-bar" backgroundColor="white" color="#414353">
-      <NavigationButton text="" android.systemIcon="ic_menu_back" @tap="goBack" />
+      <NavigationButton text="" android.systemIcon="ic_menu_back" @tap="$navigateBack" />
       <StackLayout
         orientation="horizontal"
       >
@@ -76,46 +76,46 @@
       return {
         chatData: [
           {
-            price: 150,
-            profit: 100,
-            date: new Date()
-          },
-          {
-            price: 130,
-            profit: 120,
-            date: new Date()
-          },
-          {
-            price: 110,
+            price: 100,
             profit: 80,
             date: new Date()
           },
           {
-            price: 140,
+            price: 84,
+            profit: 22,
+            date: new Date()
+          },
+          {
+            price: 95,
+            profit: 11,
+            date: new Date()
+          },
+          {
+            price: 33,
+            profit: 40,
+            date: new Date()
+          },
+          {
+            price: 70,
             profit: 30,
             date: new Date()
           },
           {
-            price: 100,
-            profit: 30,
-            date: new Date()
-          },
-          {
-            price: 120,
-            profit: 105,
+            price: 80,
+            profit: 33,
             date: new Date()
           }
         ],
       }
     },
-    methods: {}
+    methods: {
+
+    }
   };
 
 </script>
 
 <style lang="scss">
-  // Start custom common variables
-  @import '../app-variables';
   // End custom common variables
   .refrigerator-page {
     .action-bar-title {
@@ -132,7 +132,7 @@
         .refrigerator-label {
           margin-left: 40px;
           font-size: 25px;
-          color: $text-color-gray;
+          color: #414353;
         }
       }
     }

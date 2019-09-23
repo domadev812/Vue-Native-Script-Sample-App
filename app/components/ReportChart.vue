@@ -50,8 +50,6 @@
 </script>
 
 <style lang="scss">
-  // Start custom common variables
-  @import '../app-variables';
   // End custom common variables
   .chart-container {
     .chart-item {

@@ -1,7 +1,10 @@
 import Vue from "nativescript-vue";
 import HomeScreen from "./screens/HomeScreen";
-import NSVueShadow from 'nativescript-vue-shadow'
-Vue.use(NSVueShadow)
+
+Vue.registerElement(
+  'CardView',
+  () => require('@nstudio/nativescript-cardview').CardView
+);
 
 new Vue({
   template: `
